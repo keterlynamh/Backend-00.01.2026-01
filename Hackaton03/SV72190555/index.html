@@ -1,16 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Base de Ejercicios</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .contenedor {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .info {
+            color: #005eff;
+        }
+
+        .ok {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .neutro {
+            color: gray;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="script.js"></script>
+<div class="contenedor">
+    <h2 id="saludo" class="info"></h2>
+
+    <input type="text" id="entrada" placeholder="Escribe algo aquí">
+
+    <br>
+
+    <button onclick="procesar()">Procesar</button>
+    <button onclick="limpiarTodo()">Limpiar todo</button>
+
+    <p id="resultado" class="neutro"></p>
+</div>
+
+<script src="base.js"></script>
 </body>
 </html>
