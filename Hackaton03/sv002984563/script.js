@@ -481,7 +481,7 @@ function Ejercicio15(){
         resultado = numero * factorCmPulg
     } Swal.fire({
         title:"Respuesta",
-        text: numero + " serian " + resultado + " pulgadas ",
+        text: numero + " pulgadas serian " + resultado + " pulgadas ",
         icon: "success"
     });
 
@@ -489,9 +489,448 @@ function Ejercicio15(){
         resultado = numero * factorLbKg
     } Swal.fire({
         title: "Respuesta",
-        text: numero + " serian " + resultado + " kilogramo ",
+        text: numero + " libras serian " + resultado + " kilogramo ",
         icon: "success"
     });
 
     console.log("Fin del ejercicio 15")
+}
+
+function Ejercicio16(){
+
+    console.log("Inicico de ejercicio 16")
+
+    let d = Number(prompt("Ingrese el numero que corresponde al dia (1-7)"));
+    let resultado;
+
+    switch(d){
+        case 1:
+            resultado = "Lunes";
+            break;
+
+         case 2:
+            resultado = "Martes";
+            break;
+
+         case 3:
+            resultado = "Miercoles";
+            break;
+
+         case 4:
+            resultado = "Jueves";
+            break;
+
+        case 5:
+            resultado = "Viernes";
+            break;
+
+        case 6:
+            resultado = "Sabado";
+            break;
+
+        case 7:
+            resultado = "Domingo"
+             break;
+        default:
+            resultado = "Ingrese un numero correcto"
+    }
+
+    Swal.fire({
+        title: "Respuesta",
+        text: resultado,
+        icon: "success"
+    })
+    console.log("Fin del ejercicio 16")
+}
+
+function Ejercicio17(){
+
+    console.log("Inicio de ejercicio 17")
+
+   let H, M, S;
+    do{
+        H = parseInt(prompt("Ingrese las horas:(0-23)"));
+        if (H < 0 || H > 23 || isNaN(H)){
+            alert("Error: la hora ingresada es incorrecta");
+        } 
+    } while (!(H >= 0 && H <= 23));
+
+    do{
+        M = parseInt(prompt("Ingrese los minutos:(0-59)"));
+        if (M < 0 || M > 59 || isNaN(M)){
+            alert("Error: los minutos ingresados son incorrectos");
+        } 
+    } while (!(M >= 0 && M <= 59));
+
+     do{
+        S = parseInt(prompt("Ingrese los segundos:(0-59)"));
+        if (S < 0 || S > 59 || isNaN(S)){
+            alert("Error: los segundos ingresados son incorrectos");
+        } 
+    } while (!(S >= 0 && S <= 59));
+
+    let sNew = S + 1;
+    let mNew = M;
+    let hNew = H;
+
+    if (sNew > 59){
+        sNew = 0;
+        mNew = mNew + 1;
+    } if (mNew > 59){
+        mNew = 0;
+        hNew = hNew + 1;
+    } if ( hNew > 23) {
+        hNew = 0
+    }
+    
+    Swal.fire({
+        title: "Respuesta",
+        text: "Hora +1 seg: " + hNew + ":" + mNew + ":" + sNew,
+        icon: "info"
+    }) 
+
+    console.log("Fin del ejercicio 17")
+    
+}
+
+function Ejercicio18(){
+
+    console.log("Inicio de ejercicio 18")
+
+    let numP = Number(prompt("Ingrese la cantidad de productos: "))
+    pGanancia = 8.25
+    if (numP >= 500){
+        precio = 6;
+    } else if (numP >= 100){
+            precio = 7;
+        } else  if (numP >= 10){
+                precio = 8;
+            } else
+                precio = 10;
+
+    pCliente = precio * numP
+    gVendedor = pCliente * (pGanancia / 100)
+
+     Swal.fire({
+        title: "Respuesta",
+        html:`
+        <p><strong>El monto a pagar por la compra es de : $</strong>$${pCliente}</p>
+        <p><strong>La ganancia del vendedor es de: $</strong>$${gVendedor}</p>
+        `,
+        icon: "success"
+    }) 
+
+    console.log("Fin del ejercicio 18")
+}
+
+function Ejercicio19(){
+
+    console.log("Inicio de ejercicio 19")
+
+    let t = parseInt(prompt(`Ingrese codigo de trabajador:\n`+
+        "1. Cajero \n"+ "2. Servidor \n" + "3. Preparador de mezclas \n" + "4. Mantenimiento"
+    ));
+
+    switch (t){
+        case 1:
+            t = 56
+        case 2:
+            t = 64
+        case 3:
+            t = 80
+        case 4:
+            t = 48
+        default:
+             Swal.fire({
+        title: "Respuesta",
+        text: "Codigo de trabajador incorrecto",
+        icon: "error"
+       })
+    }
+     
+    let d = parseInt(prompt("Ingrese numero de dias trabajados (1-6)"));
+    let pago = d * t
+
+    if (d > 6){
+        Swal.fire({
+        title: "Respuesta",
+        text: "Numero de dias incorrectos",
+        icon: "error"
+    })
+    } else
+        Swal.fire({
+        title: "Respuesta",
+        text: "Al empleado le corresponde: $" + pago,
+        icon: "successr"
+    })
+    
+    console.log("Fin del ejercicio 19") 
+}
+
+function Ejercicio20(){
+    console.log("Inicio de ejercicio 20");
+
+    Swal.fire({
+        title: "Ingrese 4 numeros: ",
+        html: `
+        <input id="n1" class="swal2-input"
+     placeholder="Primer numero"> 
+        <input id="n2" class="swal2-input"
+     placeholder="Segundo numero">
+        <input id="n3" class="swal2-input"
+     placeholder="Tercer numero">
+        <input id="n4" class="swal2-input"
+     placeholder="Cuarto numero">
+        `,
+        confirmButtonText: "Aceptar",
+        preConfirm: () => {
+            return [
+
+                Number(document.getElementById("n1").value),
+                Number(document.getElementById("n2").value),
+                Number(document.getElementById("n3").value),
+                Number(document.getElementById("n4").value)
+            ];
+        }
+    }).then(result => {
+        let n1 = result[0];
+        let n2 = result[1];
+        let n3 = result[2];
+        let n4 = result[3];
+    });
+
+    //numeros pares
+    
+    if (n1 % 2 === 0){
+        pares = pares + 1
+    }
+     if (n2 % 2 === 0){
+        pares = pares + 1
+    }
+     if (n3 % 2 === 0){
+        pares = pares + 1
+    }
+     if (n4 % 2 === 0){
+        pares = pares + 1
+    }
+
+    let pares 
+    let res1= "Hay " + pares + "numeros pares"
+
+    let mayor;
+
+    //numero mayor
+
+    if (n1 >= n2 && n1 >= n3 && n1 >= n4){
+        mayor = n1
+    } else if (n2 >= n1 && n2 >= n3 && n2 >= n4){
+        mayor = n2
+    } else if (n3 >= n1 && n3 >= n2 && n3 >= n4){
+        mayor = n3
+    } else 
+        mayor = n4
+
+        let res2 = "El numero mayor es: " + mayor;
+
+    
+        //condicion 3
+    let esPar;
+    if (n3 % 2 === 0) {
+        esPar = true
+    } else 
+        esPar = false
+
+    let a = n2 * n2;
+    let res3;
+    if (esPar){
+        res3 = "El cuadrado del segundo: " + a;
+    } else
+        res3 = "Tercer numero no es par"
+
+    //condicion 4
+    let b = (n1 + n2 + n3 + n4 ) / 4;
+    let res4;
+    if (n1 < n4){
+         res4 = "La suma de los 4 numeros es: " + b;
+    }
+
+    //condicion 5
+    let suma;
+    let res5;
+  if (n2 > n3 && n3 >= 50 && n3 <= 700){
+    suma =(n1 + n2 + n3 + n4);
+    res5 = "La suma de los numeros es: " + suma;
+  }
+
+  Swal.fire({
+    title: "Resultados",
+    html:`
+    <p><strong>Resultado 1:</strong>${res1}</p>
+    <p><strong>Resultado 2:</strong>${res2}</p>
+    <p><strong>Resultado 3:</strong>${res3}</p>
+    <p><strong>Resultado 4:</strong>${res4}</p>
+    <p><strong>Resultado 5:</strong>${res5}</p>
+    `, 
+    icon: "success"
+  });
+  console.log("Fin del ejercicio 20")
+}
+
+function Ejercicio21(){
+
+    console.log("Inicio de ejercicio 21");
+    let numero = parseInt(prompt("Ingresa un numero: "));
+
+    let factorial = 1
+
+    for (let i = 1; i <= numero; i++){
+         factorial = factorial * i
+    }
+
+    Swal.fire({
+            title: "Respuesta",
+            text: "El factorial de " + numero + " es: " + factorial,
+            icon: "success"
+    });
+
+    console.log("Fin de ejercicio 21")
+}
+
+function Ejercicio22(){
+
+    console.log("Inicio de jercicio 22");
+
+    let n = parseInt(prompt("Ingrese un numero: "));
+    let r = n * (n + 1) / 2;
+
+     Swal.fire({
+            title: "Respuesta",
+            text: "La suma de los primeros " + n + " numeros es: " + r,
+            icon: "success"
+    });
+    console.log("Fin del ejercicio 22")
+}
+
+function Ejercicio23(){
+
+    console.log("Inicio de ejercicio 23")
+    let n = parseInt(prompt("Inserta un numero: "));
+    let suma = 0;
+
+    for (i = 1; i <= n; i++){
+        if (i % 2 !== 0) {
+            suma = suma + i
+        }
+    }
+    Swal.fire({
+            title: "Respuesta",
+            text: "La suma de los numeros impares que contiene el numero " + n + " es: " + suma,
+            icon: "success"
+    });
+    console.log("Fin del ejercicio 23")
+}
+
+function Ejercicio24(){
+ 
+    console.log("Inicio de ejercicio 24");
+
+    let n =parseInt(prompt("Inserte un numero del 1  al 1000"));
+    suma = 0;
+
+    for (i = 1; i <= n; i++){
+          if (i % 2 === 0) {
+            suma = suma + i
+        }
+    }
+      Swal.fire({
+            title: "Respuesta",
+            text: "La suma de los numeros pares que contiene el numero " + n + " es: " + suma,
+            icon: "success"
+    });
+    console.log("Fin del ejercicio 24")
+}
+
+function Ejercicio25(){
+
+    console.log("Inicio del ejercicio 25");
+    let n = parseInt(prompt("Inserte un numero:"));
+    let f = 1;
+    let i =1;
+
+    while (i <= n){
+        f = f * i
+        i = i + 1
+    }
+      
+    Swal.fire({
+        title: "Respuesta",
+        text: "El factorial es: " + f,
+        icon: "success"
+    });
+    console.log("Fin del ejercicio 25")
+}
+
+function Ejercicio26(){
+    console.log("Inicio de ejercicio 26");
+
+    let a = parseInt(prompt("Ingresar dividendo"));
+    let b = parseInt(prompt("Ingresar divisor"));
+
+    if (b === 0){
+        Swal.fire({
+        title: "Respuesta",
+        text: "Error: no se puede dividir entre 0",
+        icon: "error"
+    });
+    }
+    
+    let c = 0;
+    let r = a;
+    if (c === 0){
+        r = a
+    }
+
+    while ( r >= b){
+        r = r - b
+        c = c + 1
+    }
+    Swal.fire({
+        title: "Respuesta",
+        html:`
+        <p><strong>Resto:</strong>${r}</p>
+        <p><strong>Cociente:</strong>${c}</p>
+        `,
+        icon: "success"
+    });
+    console.log("Fin del ejercicio 26")
+}
+
+function Ejercicio27(){
+    console.log("Inivio de ejercicio 27");
+
+    let suma = 0;
+    let op = 0;
+    let media;
+    let n = Number(prompt("Inserte numero"));
+
+    while (n >= 0) {
+        suma = suma + n
+        op = op + 1
+        n = Number(prompt("Inserte numero"));
+
+        media = media / op;
+        Swal.fire({
+        title: "Respuesta",
+        text: "La media de la lista de numeros es: " + media,
+        icon: "success"
+    });
+    } 
+    if ( n < 0) {
+        Swal.fire({
+        title: "Respuesta",
+        text: "No se ingreso numero positivo",
+        icon: "error"
+    });
+    }
+    console.log("Fin del ejercicio 27")
 }
