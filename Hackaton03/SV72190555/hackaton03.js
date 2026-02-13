@@ -163,12 +163,7 @@ function ejercicio03() {
     });
 }
 
-
-
-// ================================
-// Ejercicio 04
 //4. Hacer un algoritmo en JavaScript que lea tres números enteros y los muestre de menor a mayor.
-// ================================
 function ejercicio04() {
 
     // En PSeInt:
@@ -176,9 +171,9 @@ function ejercicio04() {
     // En JavaScript:
     // Escribir <- Swal.fire()
     Swal.fire({
-        title: "Ejercicio 04"
+        title: "Ejercicio 04",
         // <input id= "variable" class="tipo de bolsa" placeholder="texto mostrado">
-        html: `
+        html:`
             <p>Escribe tres números y los ordenaremos de menor a mayor</p>
             <input id="num1" class="swal2-input" placeholder="Número 1">
             <input id="num2" class="swal2-input" placeholder="Número 2">
@@ -248,13 +243,93 @@ function ejercicio04() {
         });
     });
 }
+// 5. Hacer un algoritmo en JavaScript para una tienda de zapatos que tiene una promoción de descuento para vender al mayor, esta dependerá del número de zapatos que se compren. Si son más de diez, se les dará un 10% de descuento sobre el total de la compra; si el número de zapatos es mayor de veinte pero menor de treinta, se le otorga un 20% de descuento; y si son más treinta zapatos se otorgará un 40% de descuento. El precio de cada zapato es de $80.
+function ejercicio05() {
+
+    // En PSeInt:
+    // Escribir "Escribe numero de pares"
+    // En JavaScript:
+    // Escribir <- Swal.fire()
+
+    Swal.fire({
+        title: "Ejercicio 05",
+        html: `
+            <p>Escribe el número de pares a comprar</p>
+            <input id="pares" class="swal2-input" placeholder="Número de pares">
+        `,
+        icon: "info",
+        confirmButtonText: "Calcular",
+        showCancelButton: true,
+
+        preConfirm: () => {
+
+            // En PSeInt:
+            // Leer numeroUsuario
+            // En JavaScript:
+            // Leer <- document.getElementById()
+
+            let numeroUsuario = Number.parseInt(
+                document.getElementById("pares").value
+            );
+
+            // Validación extra de JavaScript
+            if (Number.isNaN(numeroUsuario) || numeroUsuario <= 0) {
+                Swal.showValidationMessage(
+                    "Ingresa un número válido mayor a 0"
+                );
+                return false;
+            }
+
+            return numeroUsuario;
+        }
+
+    }).then((result) => {
+
+        if (!result.isConfirmed) return;
+
+        // n <- numeroUsuario
+         let n = result.value;
+
+        // Definir precio, pago, f Como Real
+        let precio = 80;
+        let pago;
+        let f = 1;  // factor de pago
+        // ESTRUCTURA CONDICIONAL
+   
+        if (n > 30) {
+            f = 0.6;
+
+        } else if (n > 20) {  // Sino Si
+            f = 0.8;
+
+        } else if (n > 10) {  // Sino Si
+            f = 0.9;
+
+        } else {
+            f = 1;
+        }
+
+        // En PSeInt:
+        // pago <- precio * n * f
+        pago = precio * n * f;
+
+        
+        Swal.fire({
+            title: "Resultado",
+            text: `El pago es de $ ${pago.toFixed(2)}`,
+            icon: "success"
+        });
+
+    });
+}
 
 
-
-// // 5. Hacer un algoritmo en JavaScript para una tienda de zapatos que tiene una promoción de descuento para vender al mayor, esta dependerá del número de zapatos que se compren. Si son más de diez, se les dará un 10% de descuento sobre el total de la compra; si el número de zapatos es mayor de veinte pero menor de treinta, se le otorga un 20% de descuento; y si son más treinta zapatos se otorgará un 40% de descuento. El precio de cada zapato es de $80.
-// function ejercicio05() {}
 // //6. Hacer un algoritmo en JavaScript para ayudar a un trabajador a saber cuál será su sueldo semanal, se sabe que si trabaja 40 horas o menos, se le pagará $20 por hora, pero si trabaja más de 40 horas entonces las horas extras se le pagarán a $25 por hora.
-// function ejercicio06() {}
+
+
+
+
+
 // //7. Hacer un algoritmo en JavaScript para una tienda de helado que da un descuento por compra a sus clientes con membresía dependiendo de su tipo, sólo existen tres tipos de membresía, tipo A, tipo B y tipo C. Los descuentos son los siguientes:
 
 //    //Tipo A 10% de descuento
