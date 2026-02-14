@@ -916,7 +916,7 @@ function Ejercicio27(){
     while (n >= 0) {
         suma = suma + n
         op = op + 1
-        n = Number(prompt("Inserte numero"));
+        
 
         media = media / op;
         Swal.fire({
@@ -924,6 +924,8 @@ function Ejercicio27(){
         text: "La media de la lista de numeros es: " + media,
         icon: "success"
     });
+
+    n = Number(prompt("Inserte numero"));
     } 
     if ( n < 0) {
         Swal.fire({
@@ -933,4 +935,374 @@ function Ejercicio27(){
     });
     }
     console.log("Fin del ejercicio 27")
+}
+
+function Ejercicio28(){
+
+    console.log("Inicio de ejercicio 28");
+
+    let suma = 0;
+    let a = 1;
+    do (
+        suma = suma + a,
+        a = a + 1
+    ) 
+    while (!(a > 100));
+    Swal.fire({
+        title: "Respuesta",
+        text: "La suma de los primeros 100 numeros es: " + suma,
+        icon: "success"
+    });
+    console.log("Fin del ejercicio 28")
+}
+
+function Ejercicio29(){
+
+     console.log("Inicio de ejercicio 29");
+
+    let suma = 0;
+    let a = 1;
+    while (a <= 100){
+        suma = suma + a,
+        a = a + 1
+    };
+     Swal.fire({
+        title: "Respuesta",
+        text: "La suma de los primeros 100 numeros es: " + suma,
+        icon: "success"
+    });
+    console.log("Fin del ejercicio 29")
+}
+
+function Ejercicio30(){
+      console.log("Inicio de ejercicio 30");
+
+    let suma = 0;
+    for (a = 1; a <= 100; a++ ){
+        suma = suma + a
+    }
+      Swal.fire({
+        title: "Respuesta",
+        text: "La suma de los primeros 100 numeros es: " + suma,
+        icon: "success"
+    });
+    console.log("Fin del ejercicio 30")
+}
+
+function Ejercicio31(){
+    console.log("Inicio de ejercicio 31");
+
+    let pares;
+    let nPares;
+    let impares;
+    let nImpares;
+    for (i = 1; i <= 100; i++){
+        let n = Number(prompt("Ingresa un numero"))
+
+        if (n % 2 === 0) {
+            pares = pares + n
+            nPares = nPares + 1
+        } else {
+            impares = impares + 1
+            nImpares = nImpares + 1
+        }
+
+        let mPares;
+        if (nPares > 0){
+            mPares = pares / nPares
+
+            Swal.fire({
+               title: "Respuesta",
+               text: "La media de los numeros pares es: " + mPares,
+               icon: "success"
+           });
+            
+        } else {
+            Swal.fire({
+              title: "Respuesta",
+              text: "No hay numeros pares",
+              icon: "error"
+           });
+        }
+
+        let mImpares;
+        if (nInpares > 0){
+            mImpares = impares / nimPares
+
+            Swal.fire({
+               title: "Respuesta",
+               text: "La media de los numeros pares es: " + mPares,
+               icon: "success"
+           });
+            
+        } else {
+            Swal.fire({
+              title: "Respuesta",
+              text: "No hay numeros pares",
+              icon: "error"
+           });
+        }
+    }
+    console.log("Fin de ejercicio 31")
+
+}
+
+function Ejercicio32(){
+
+    console.log("Inicio de ejercicio 32");
+
+    let mayorPoblacion = 0;
+    let ciudadMasPoblada = "";
+
+    for (let a = 1; a <= 11; a++){
+        let ciudad = prompt("Ingresa el nombere de la ciudad: ");
+        let poblacion = parseInt(prompt("Ingresa el numero de poblacion: "));
+
+        if (poblacion > mayorPoblacion) {
+            mayorPoblacion = poblacion;
+            ciudadMasPoblada = ciudad;
+        }
+    }
+
+     Swal.fire({
+         title: "Respuesta",
+         text: "La ciudad mas poblada es: " + ciudadMasPoblada + " con " + mayorPoblacion + " habitantes ",
+         icon: "success"
+       });
+    
+       console.log("Fin del ejercicio 32")
+}
+
+function Ejercicio33(){        
+
+    console.log("Inicio de ejercicio 33");
+
+    do {
+
+        let t = parseInt(prompt(`Ingrese codigo de trabajador:\n`+
+          "1. Cajero \n"+ "2. Servidor \n" + "3. Preparador de mezclas \n" + "4. Mantenimiento"
+        ));
+
+       switch (t){
+        case 1:
+            t = 56
+        case 2:
+            t = 64
+        case 3:
+            t = 80
+        case 4:
+            t = 48
+        default:
+             Swal.fire({
+               title: "Respuesta",
+               text: "Codigo de trabajador incorrecto",
+               icon: "error"
+           })
+        }
+     
+        let d = parseInt(prompt("Ingrese numero de dias trabajados (1-6)"));
+        let pago = d * t
+
+       if (d > 6){
+          Swal.fire({
+              title: "Respuesta",
+              text: "Numero de dias incorrectos",
+              icon: "error"
+            })
+        } else
+            Swal.fire({
+                title: "Respuesta",
+                text: "Al empleado le corresponde: $" + pago,
+                icon: "successr"
+           })
+        
+    } while (cierre === "n" || cierre === "N")
+
+        let cierre = prompt("¿quieres hacer otra operacion? (s/n)")
+   
+}
+
+function Ejercicio34(){
+
+    console.log("Inicio de jercicio 34")
+
+    let n = parseInt(prompt("Ingresa el numero segun la tabla de multiplicar: "));
+    let resultadoText = "";
+
+    for (let a = 1; a <= 10; a++){
+        let resultado = n * a
+        resultadoText +=  n + " x " + a + " = " + resultado + " / "
+
+        Swal.fire({
+               title: "Respuesta",
+               text: resultadoText,
+               icon: "success"
+           });
+    }
+
+
+    console.log("Fin de ejercicio 34")
+}
+
+function Ejercicio35(){
+    console.log("Inicio de ejercicio 35");
+
+    // Pedir el primer número
+    let num = parseInt(prompt("Ingresa el primer número"));
+    let numMayor = num;
+    let numMenor = num;
+
+    // Repetir desde el 2 hasta el 20
+    for (let i = 2; i <= 20; i++) {
+        num = parseInt(prompt("Ingresa el número " + i));
+
+        if (num > numMayor) {
+            numMayor = num;
+        }
+
+        if (num < numMenor) {
+            numMenor = num;
+        }
+    }
+
+    // Mostrar resultados
+    alert("El número mayor es: " + numMayor + "\nEl número menor es: " + numMenor);
+
+    console.log("Fin de ejercicio 35");
+
+}
+
+function Ejercicio36(){
+
+    console.log("Inicio de ejercicio 36");
+
+    let n = parseInt(prompt("¿Cuántos números de Fibonacci quieres ver?"));
+
+    let a = 0;
+    let b = 1;
+    let serie = "";
+
+    if (n <= 0) {
+        alert("Debe ingresar un número mayor a 0");
+    } else if (n === 1) {
+        serie = a;
+    } else if (n === 2) {
+        serie = a + ", " + b;
+    } else {
+        serie = a + ", " + b;
+        for (let i = 2; i < n; i++) {
+            let c = a + b;
+            serie += ", " + c;
+            a = b;
+            b = c;
+        }
+    }
+
+    Swal.fire({
+        title: "Respuesta",
+        text: "Serie de Fibonacci:\n" + serie,
+        icon: "success"
+    })
+
+    console.log("Fin de ejercicio 36");
+
+
+}
+
+function Ejercicio37(){
+
+    console.log("Inicio de ejercicio 37");
+
+    let a = parseInt(prompt("Ingrese el primer numero:"));
+    let b = parseInt(prompt("Ingrese el segundo numero:"));
+    let resto;
+
+    while (b != 0) {
+        resto = a % b
+        a = b
+        b = resto
+    }
+     Swal.fire({
+        title: "Respuesta",
+        text: "El M.C.D es: " + a,
+        icon: "success"
+    })
+    console.log("Fin del ejercicio 37")
+}
+
+function Ejercicio38(){
+
+    console.log("Inicio de ejercicio 38");
+    let n = parseInt(prompt("Ingrese un numero: "));
+    suma = 0;
+
+    for (i = 1; i < n-1; i++){
+        if (n % i === 0){
+            suma = suma + i
+
+            Swal.fire({
+             title: "Respuesta",
+             text: "Es un numero perfecto",
+             icon: "success"
+            })
+        } else {
+
+        Swal.fire({
+             title: "Respuesta",
+             text: "No es un numero perfecto",
+             icon: "error"
+            })
+    }
+    } 
+
+    console.log("Fin del ejercicio 38")
+}
+
+function Ejercicio39(){
+
+    console.log("Inicio de ejercicio 39");
+    let n = parseInt(prompt("Ingrese la cantidad de terminos: "));
+
+    let piAprox = 0
+    let signo = 1
+    let termino = 0;
+
+    for (i = 0; i < n-1; i++){
+        termino = signo / (2 * i + 1)
+        piAprox =piAprox + termino
+        signo = signo * (-1)
+    }
+
+    piAprox === piAprox * 4
+
+    Swal.fire({
+      title: "Respuesta",
+      text: "Aproximacion de pi con " + n + " terminos es: " + piAprox,
+      icon: "success"
+    })
+    console.log("Fin de ejercicio 39")
+}
+
+function Ejercicio40(){
+
+    console.log("Inicio de ejrcicio 40");
+    let n = parseInt(prompt("Ingrese la cantidad de terminos: "));
+
+    let piApro = 3;
+    let signo2 = 1;
+    let t = 0;
+
+    for (i = 1; i < n; i++){
+        t = signo * (4 / ((2*i) * (2*i + 1) * (2*i + 2)))
+        piApro = piApro + t
+        signo = signo * (-1)
+    }
+    
+
+    Swal.fire({
+      title: "Respuesta",
+      text: "Aproximacion de pi con " + n + " terminos es: " + piApro,
+      icon: "success"
+    })
+    console.log("Fin de ejercicio 40")
 }
