@@ -189,59 +189,109 @@ a:hover {
   height: 24px;
 }
 
-/* ---------- CONTENEDOR PRINCIPAL ---------- */
+/* ---------- CONTENEDOR / ZONA ---------- */
 .contenedor {
-  max-width: 1000px;
-  margin: 30px auto;
+  max-width: 860px;
+  margin: 28px auto;
+  padding: 28px 32px;
 }
 
 /* ---------- GRID DE BOTONES ---------- */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
 }
 
-/* ---------- ZONA DE EJERCICIOS ---------- */
+/* ---------- ZONA INCRUSTADA ---------- */
 #zona-ejercicio {
-  animation: fadeIn 0.4s ease-in-out;
+  animation: aparecer .3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-#zona-ejercicio h2 {
-  margin-top: 0;
+/* ---------- CAMPOS ---------- */
+.campo {
+  margin-bottom: 14px;
 }
 
-#zona-ejercicio code {
+.campo label {
   display: block;
-  background: rgba(0,0,0,0.05);
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 10px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85em;
+  font-weight: 600;
+  color: #004a7c;
+  margin-bottom: 5px;
+  font-size: .9rem;
+}
+
+/* ---------- BOTONES DE ACCIÓN ---------- */
+.botones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 10px;
+}
+
+.btn-cerrar {
+  background: linear-gradient(to bottom, #ffe0e0, #ffaaaa) !important;
+  border-color: #ff9999 !important;
+  color: #7a0000 !important;
+}
+
+/* ---------- RESULTADO ---------- */
+.resultado {
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-top: 14px;
+  font-size: 1.05rem;
+  border-left: 5px solid transparent;
+}
+
+.resultado.ok {
+  background: rgba(200, 255, 210, .55);
+  border-color: #2ecc71;
+  color: #0a4a1a;
+}
+
+.resultado.error {
+  background: rgba(255, 210, 210, .55);
+  border-color: #e74c3c;
+  color: #6a0000;
+}
+
+/* ---------- CÓDIGO ---------- */
+pre {
+  margin-top: 18px;
+  background: rgba(0, 30, 60, .07);
+  border-radius: 10px;
+  padding: 14px 16px;
   overflow-x: auto;
+}
+
+pre code {
+  font-family: "Consolas", "Fira Code", monospace;
+  font-size: .85rem;
+  color: #003060;
+  line-height: 1.6;
+}
+
+/* ---------- EJEMPLO ---------- */
+.ejemplo {
+  background: rgba(120, 200, 255, .2);
+  border-left: 4px solid #6ec6ff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: .9rem;
+  margin-bottom: 14px;
 }
 
 /* ---------- DIVIDER ---------- */
 .divider {
   height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(120,180,220,0.4),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, rgba(120,180,220,.4), transparent);
   margin: 40px 0;
 }
