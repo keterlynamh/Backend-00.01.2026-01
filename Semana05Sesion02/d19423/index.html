@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="p-5 mb-4 bg-body-tertiary rounded-3">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold" id="txtNombre"></h1>
@@ -21,11 +21,61 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div id="divReserva">
-                
+
+
+        <div id="divReserva" class="row justify-content-start">
+            <div class="col-6">
+                <div>Salida</div>
+                <table id="tblIda" class="table">
+                    <tr>
+                        <td> <strong>Nombre</strong></td>
+                        <td><input type="text" name="" id="idaNombre" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Apellido</strong></td>
+                        <td><input type="text" name="" id="idaApellido" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha Ida</strong></td>
+                        <td><input type="text" name="" id="idaFecha" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vuelo</strong></td>
+                        <td><input type="text" name="" id="idaVuelo" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Origen</strong></td>
+                        <td><input type="text" name="" id="idaOrigen" disabled></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-6">
+                <div>Retorno</div>
+                <table id="tblVuelta" class="table">
+                    <tr>
+                        <td> <strong>Nombre</strong></td>
+                        <td><input type="text" name="" id="vueltaNombre" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Apellido</strong></td>
+                        <td><input type="text" name="" id="vueltaApellido" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha Ida</strong></td>
+                        <td><input type="text" name="" id="vueltaFecha" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vuelo</strong></td>
+                        <td><input type="text" name="" id="vueltaVuelo" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Destino</strong></td>
+                        <td><input type="text" name="" id="vueltaDestino" disabled></td>
+                    </tr>
+                </table>
             </div>
         </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"
