@@ -20,9 +20,7 @@ let objGato02={
     peso: 4,
     color: "Calico",
     raza: "Mestiza",
-    dormir(){
-        console.log("Se esta durmiendo")
-    },
+    dormir(){git a},
     despertar(){
          console.log("Se esta despertando")
     }
@@ -41,7 +39,7 @@ let admin = true;
 
 
 
-// let objTV1 = new Television("00009","JVC","KTV0001","2025-10-25","LED",55,"GoogleTV");
+// let zV1 = new Television("00009","JVC","KTV0001","2025-10-25","LED",55,"GoogleTV");
 
 // console.log(objTV1.nombre);
 
