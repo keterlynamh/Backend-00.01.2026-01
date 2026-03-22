@@ -3,6 +3,7 @@ const { userRouter } = require('./routes/user.route');
 const { sequelize } = require('./models');
 const { authRouter } = require('./routes/auth.route');
 const { courseRouter } = require('./routes/course.route');
+const { lessonRouter } = require('./routes/lesson.route');
 require("dotenv").config();
 
 APP_PORT = process.env.PORT || 8000;
@@ -36,6 +37,7 @@ app.get('/health',(req,res)=>{
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
 app.use('/courses', courseRouter);
+app.use('/lessons', lessonRouter);
 
 // Inicio del servidor
 const startServer = async () => {
