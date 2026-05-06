@@ -5,7 +5,7 @@ const Paquete = sequelize.define("Paquete",{
     remitente: { type: DataTypes.STRING, allowNull:false},
     destinatario: { type: DataTypes.STRING, allowNull:false},
     descripcion: { type: DataTypes.STRING, allowNull:false},
-    entregado: { type: DataTypes.BOOLEAN, defaultValue:false},
+    estado: { type: DataTypes.STRING, defaultValue:"Pendiente"},
     fecha: { type:DataTypes.DATE , allowNull:false, defaultValue:DataTypes.NOW},
 }, {tableName: `paquetes`});
 
@@ -14,7 +14,9 @@ const Ubicacion = sequelize.define("Ubicacion",{
 }, {tableName: `ubicaciones`});
 
 const Usuario = sequelize.define("Usuario", {
-    nombre: { type: DataTypes.STRING, allowNull:false}
+    nombre: { type: DataTypes.STRING, allowNull:false},
+    email: { type: DataTypes.STRING, allowNull:false},
+    passwordHash: { type: DataTypes.STRING}
 }, {tableName: `usuarios`});
 
 const Mensaje = sequelize.define(`Mensaje`, {
